@@ -33,15 +33,15 @@ export default function MainContent() {
     }
 
     return (
-        <VStack h={'100vh'} position={'relative'} width={'100%'}>
-            <VStack>
+        <VStack h={'90vh'} position={'relative'} width={'100%'} overflowY={'hidden'} p={'20px'}>
+            <VStack overflowY={'auto'} height={'90vh'}>
                 {messages?.map((message: any, index: any) => <MessageComp key={index} message={message.message} isSender={message.isSender} />)}
             </VStack>
-            <HStack alignItems={'center'} w={'80%'} justifyContent={'space-between'} position={'fixed'} bottom={0} p={'10px'} bgColor={'white'} rounded={'lg'}>
+            <HStack alignItems={'center'} w={'80%'} justifyContent={'space-between'} position={'fixed'} bottom={20} p={'10px'} bgColor={'white'} rounded={'lg'}>
                 <IoAttachSharp size={'20px'} />
                 <Textarea rows={1} width={'100%'} resize={'none'} value={prompt} onChange={handleChange} />
                 <Button rightIcon={<IoSend size={'25px'} />} rounded={'lg'} disabled={prompt.length === 0} onClick={handlePrompting} />
             </HStack>
-        </VStack>
+        </VStack >
     )
 }
